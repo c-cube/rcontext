@@ -4,9 +4,9 @@
   (synopsis "Per-requesst context")
   (libraries hmap
              (select deadline.ml from
-                     (mtime -> deadline.real.ml)
+                     (mtime mtime.clock.os -> deadline.real.ml)
                      (-> deadline.empty.ml))
              (select start_time.ml from
-                     (mtime -> start_time.real.ml)
+                     (mtime mtime.clock.os -> start_time.real.ml)
                      (-> start_time.empty.ml))
              ))

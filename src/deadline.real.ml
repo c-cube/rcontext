@@ -1,4 +1,6 @@
-(** Deadlines. *)
+(** Deadlines.
+
+  Depends on [mtime]. *)
 
 (** Key to access a deadline from inside the request context.
     This can be useful for systems concerned with timeout
@@ -14,3 +16,12 @@ let[@inline] deadline_exn (self : Ctx.t) : Mtime.t =
 
 let with_deadline t (ctx : Ctx.t) : Ctx.t =
   { values = Hmap.add k_deadline t ctx.values }
+
+(** Has the deadline been reached? This uses {!Mtime_clock.now} to compare
+ it to the stored deadline. If there is no deadline then this returns [false]. *)
+let expired (ctx : Ctx.t) : bool =
+  match deadline ctx with
+  | None -> false
+  | Some t ->
+    let now = Mtime_clock.now () in
+    Mtime.is_later now ~than:t
