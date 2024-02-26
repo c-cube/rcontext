@@ -1,6 +1,7 @@
 
 (library
   (name rcontext)
+  (public_name rcontext)
   (synopsis "Per-requesst context")
   (libraries hmap
              (select deadline.ml from
