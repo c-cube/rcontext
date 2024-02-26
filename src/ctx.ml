@@ -5,8 +5,9 @@
 type 'a key = 'a Hmap.key
 (** Key to access a certain value in the context *)
 
-type t = { values: Hmap.t } [@@unboxed]
-(** A request context *)
+type t = Hmap.t
+(** A request context. This is simply a hmap, and standard keys
+    into it are provided in the rest of the library. *)
 
 (** Empty context *)
-let empty : t = { values = Hmap.empty }
+let empty : t = Hmap.empty

@@ -9,13 +9,12 @@
 let k_start_time : Mtime.t Hmap.key = Hmap.Key.create ()
 
 let[@inline] start_time (self : Ctx.t) : Mtime.t option =
-  Hmap.find k_start_time self.values
+  Hmap.find k_start_time self
 
 let[@inline] start_time_exn (self : Ctx.t) : Mtime.t =
-  Hmap.get k_start_time self.values
+  Hmap.get k_start_time self
 
-let with_start_time t (ctx : Ctx.t) : Ctx.t =
-  { values = Hmap.add k_start_time t ctx.values }
+let with_start_time t (ctx : Ctx.t) : Ctx.t = Hmap.add k_start_time t ctx
 
 let with_start_time_now (ctx : Ctx.t) : Ctx.t =
   let now = Mtime_clock.now () in
