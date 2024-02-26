@@ -1,6 +1,6 @@
 (** Start time *)
 
-(** {2 Start time for a request or task}.
+(** {2 Start time for a request or task}
 
  Depends on [mtime]. *)
 
