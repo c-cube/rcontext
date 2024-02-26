@@ -1,5 +1,7 @@
 (** Main type *)
 
+(** {2 Main type definition} *)
+
 type 'a key = 'a Hmap.key
 (** Key to access a certain value in the context *)
 

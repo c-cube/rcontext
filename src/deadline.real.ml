@@ -1,4 +1,6 @@
-(** Deadlines.
+(** Deadlines *)
+
+(** {2 Deadlines}
 
   Depends on [mtime]. *)
 
