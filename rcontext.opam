@@ -15,7 +15,10 @@ depends: [
   "dune" {>= "2.9"}
   "odoc" {with-doc}
 ]
-depopts: ["mtime"]
+depopts: ["thread-local-storage" "mtime"]
+conflicts: [
+  "thread-local-storage" {< "0.2"}
+]
 build: [
   ["dune" "subst"] {dev}
   [

@@ -20,7 +20,9 @@
   dune
   (odoc :with-doc))
  (depopts
+   thread-local-storage
    mtime)
+ (conflicts (thread-local-storage (< 0.2)))
  (tags
   (context)))
 
