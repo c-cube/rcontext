@@ -1,13 +1,21 @@
-
 (library
-  (name rcontext)
-  (public_name rcontext)
-  (synopsis "Per-requesst context")
-  (libraries hmap
-             (select deadline.ml from
-                     (mtime mtime.clock.os -> deadline.real.ml)
-                     (-> deadline.empty.ml))
-             (select start_time.ml from
-                     (mtime mtime.clock.os -> start_time.real.ml)
-                     (-> start_time.empty.ml))
-             ))
+ (name rcontext)
+ (public_name rcontext)
+ (synopsis "Per-requesst context")
+ (libraries
+  hmap
+  (select
+   deadline.ml
+   from
+   (mtime mtime.clock.os -> deadline.real.ml)
+   (-> deadline.empty.ml))
+  (select
+   start_time.ml
+   from
+   (mtime mtime.clock.os -> start_time.real.ml)
+   (-> start_time.empty.ml))
+  (select
+   tls.ml
+   from
+   (thread-local-storage -> tls.real.ml)
+   (-> tls.empty.ml))))
