@@ -11,3 +11,7 @@ type t = Hmap.t
 
 (** Empty context *)
 let empty : t = Hmap.empty
+
+let add : 'a key -> 'a -> t -> t = Hmap.add
+let get : 'a key -> t -> 'a option = Hmap.find
+let get_exn : 'a key -> t -> 'a = Hmap.get

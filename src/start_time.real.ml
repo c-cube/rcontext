@@ -11,6 +11,7 @@ let k_start_time : Mtime.t Hmap.key = Hmap.Key.create ()
 let[@inline] start_time (self : Ctx.t) : Mtime.t option =
   Hmap.find k_start_time self
 
+(** @raise Invalid_argument if no start time present *)
 let[@inline] start_time_exn (self : Ctx.t) : Mtime.t =
   Hmap.get k_start_time self
 
