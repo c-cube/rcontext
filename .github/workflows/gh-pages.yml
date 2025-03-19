@@ -13,13 +13,13 @@ jobs:
       - uses: actions/checkout@main
 
       - name: Use OCaml
-        uses: ocaml/setup-ocaml@v2
+        uses: ocaml/setup-ocaml@v3
         with:
           ocaml-compiler: '5.1'
           dune-cache: true
           allow-prerelease-opam: true
 
-      - run: opam install odig mtime thread-local-storage # depopts
+      - run: opam install odig mtime ptime thread-local-storage # depopts
       - run: opam install rcontext
 
       - name: Build
